@@ -13,14 +13,14 @@ const BlueGrid = styled.div`
 
 const App = () => {
   return (
-    // <BlueGrid>
-    //   <Button variant='outlined' size='large'>
-    //     {' '}
-    //     mui-button1{' '}
-    //   </Button>
-
-    // </BlueGrid>
-    <UsersFetched />
+    <div>
+      <BlueGrid>
+        <Button variant='outlined' size='large'>
+          mui-button
+        </Button>
+      </BlueGrid>
+      <UsersFetched />
+    </div>
   );
 };
 
