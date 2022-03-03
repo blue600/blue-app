@@ -1,26 +1,29 @@
-import { Button } from '@mui/material';
-import styled from '@emotion/styled';
-import { UsersFetched } from './blue-components/UsersFetched';
+import { Routes, Route } from 'react-router-dom';
+import ResponsiveAppBar from './main-menu/AppBar.jsx';
+import HomeIcon from '@mui/icons-material/Home';
+import { Login } from './login/Login.jsx';
+import { HomeUnLogin } from './main-menu/HomeUnLogin.jsx';
 
-const BlueGrid = styled.div`
-  width: 100%;
-  padding: 20px;
-  border: 5px red solid;
-  margin: auto;
-  display: flex;
-  justify-content: space-around;
-`;
+// const BlueGrid = styled.div`
+//   width: 100%;
+//   padding: 20px;
+//   border: 5px red solid;
+//   margin: auto;
+//   display: flex;
+//   justify-content: space-around;
+// `;
 
 const App = () => {
   return (
-    <div>
-      <BlueGrid>
-        <Button variant='outlined' size='large'>
-          mui-button
-        </Button>
-      </BlueGrid>
-      <UsersFetched />
-    </div>
+    <>
+      <ResponsiveAppBar />
+      <Routes>
+        <Route path='/' element={<HomeIcon />} />
+        <Route path='*' element={<HomeIcon />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/homeunlogin' element={<HomeUnLogin />} />
+      </Routes>
+    </>
   );
 };
 
