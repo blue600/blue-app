@@ -14,9 +14,7 @@
 
 - 业务学习归学习，不要急于开发。以后改代码会浪费很多时间。先只做会计分录模块，深入研究业务。订单以及集成暂时放下。
 
-- 认证模块，学习HTTP认证机制，抽时间学习❗️
-
-- 授权模块
+- 
 
 # blue-app 架构设计
 
@@ -238,7 +236,7 @@ $ npm install react-router-dom
 
 - 继续使用CSS文件定义 style
 
-## 运用@emotion/styled
+## 不用@emotion/styled
 
 - @emotion/styled 基本是参照 styled-components 设计的，语法都是一样的。
 
@@ -261,7 +259,7 @@ export const BLink = styled('div')({
 });
 ```
 
-## CSS文件 + react 的 classname方案
+## 采用CSS文件 + react 的 classname方案
 
 ```javascript
 // 1. 在 login.css 文件中定义
