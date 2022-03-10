@@ -7,11 +7,7 @@ export const HomeUnLogin = () => {
   return (
     <>
       <div>HomeUnLogin</div>
-      <Button
-        disabled='true'
-        variant='contained'
-        onClick={() => navigate('/Login')}
-      >
+      <Button variant='contained' onClick={() => navigate('/Login')}>
         Login First
       </Button>
     </>

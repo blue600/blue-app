@@ -32,44 +32,7 @@
 
 - 
 
-## react-router-dom
-
-- 参见：[React Router Tutorial - 3 - Configuring Routes - YouTube](https://youtu.be/09dh_T-ZHl0)
-
-- 客户端路由模块，主要方便“菜单项链接目标组件”，不需要自己写算法
-
-```javascript
-//1. index.js 文件变化
-import { BrowserRouter } from 'react-router-dom';
-
-ReactDOM.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </React.StrictMode>,
-  document.getElementById('root')
-);
-
-
-//2. App.js 文件变化
-import { Routes, Route } from 'react-router-dom';
-
-
-const App = () => {
-  return (
-    <>
-      <ResponsiveAppBar />
-      <Routes>
-        <Route path='/home' element={<HomeIcon />} />
-        <Route path='/abc' element={<AbcIcon />} />
-      </Routes>
-    </>
-  );
-};
-```
-
-## 命名规范
+## ## 命名规范
 
 - 名词全部用单数，动词全部用原型。咱中国人实在是容易搞混乱这些变化，干脆都不变。
 
@@ -123,18 +86,65 @@ export default App;
 
 - 一般情况下，变化这些输入参数（也就是组件函数的API）能获得需要的组件变体，不需要自己设计（配色很难！）
 
-# ## 本节 npm install组件清单
+## 本节 npm install组件清单
 
 ```shell
 # mui
 npm install @mui/material @emotion/react @emotion/styled
 ```
 
-# 第二步 主菜单
+# 第二步 主页面框架
 
-- 参考：[Material UI React Tutorial | Material UI Responsive Project - YouTube](https://youtu.be/lKZiXQWnlUw)
+- Mui课程参考：[Material UI React Tutorial | Material UI Responsive Project - YouTube](https://youtu.be/lKZiXQWnlUw)
 
 - 采用MUI的 AppBar - ResponsiveAppBar 样例代码
+
+## AppBar + react-router-dom
+
+- 主页面分成两部分（遵从简单化原则）
+  
+  - 顶部 AppBar，菜单区域
+  
+  - react-router-dom 管理加载的，内容区域
+
+- 客户端路由模块，react-notes笔记有详细说明
+
+- 参见：[React Router Tutorial - 3 - Configuring Routes - YouTube](https://youtu.be/09dh_T-ZHl0)
+
+```javascript
+//1. index.js 文件变化
+import { BrowserRouter } from 'react-router-dom';
+
+ReactDOM.render(
+  <React.StrictMode>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </React.StrictMode>,
+  document.getElementById('root')
+);
+
+
+//2. App.js 文件变化
+import { Routes, Route } from 'react-router-dom';
+
+
+const App = () => {
+  return (
+    <>
+      <ResponsiveAppBar />
+      <Routes>
+        <Route path='/' element={<HomeIcon />} />
+        <Route path='*' element={<HomeIcon />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/homeunlogin' element={<HomeUnLogin />} />
+      </Routes>
+    </>
+  );
+};
+
+export default App;
+```
 
 - 根据用户是否登录以及登录后的角色权限，来决定显示哪些菜单项（功能）
   
