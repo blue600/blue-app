@@ -122,7 +122,7 @@ const ResponsiveAppBar = () => {
               return (
                 <MenuItem disabled={disableFlag} key={node.name}>
                   <Typography textAlign='center'>
-                    <Link className={'link'} to='/homeunlogin'>
+                    <Link className={'link'} to={node.route}>
                       {node.name}
                     </Link>
                   </Typography>
