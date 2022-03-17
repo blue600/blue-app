@@ -5,6 +5,6 @@ const menuNode = [
   { name: '会计', code: '04' },
 ];
 
-let menuNodeL1 = [];
-menuNodeL1 = menuNode.filter(node => node.code === '03');
-console.log(menuNodeL1);
+let menuItemL1 = [];
+menuItemL1 = menuNode.filter(node => node.code === '03');
+console.log(menuItemL1);

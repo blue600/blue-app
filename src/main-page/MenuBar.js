@@ -7,13 +7,13 @@ const MenuBar = () => {
   return (
     <div>
       <Row>
-        <Col xs={12} md={4}>
+        <Col xs={12} sm={4}>
           <div>blue600.com</div>
         </Col>
-        <Col xs={0} md={16}>
+        <Col xs={0} sm={16}>
           <MainMenu />
         </Col>
-        <Col xs={12} md={4}>
+        <Col xs={12} sm={4}>
           <div>login</div>
         </Col>
       </Row>

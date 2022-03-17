@@ -13,9 +13,9 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import './style.css';
-import { menuNodeL1, menuNodeL2 } from './menu-item.js';
+import { menuItemL1, menuItemL2 } from './menu-item.js';
 
-// 公共变量，包括 import { menuNodeL1, menuNodeL2 } ， 一级和二级菜单node 数组
+// 公共变量，包括 import { menuItemL1, menuItemL2 } ， 一级和二级菜单node 数组
 const disableNode = ['0202', '0302']; // 无权限清单
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout']; // user菜单项
 
@@ -37,7 +37,7 @@ const ResponsiveAppBar = () => {
   };
   const openMenuC = (event, code) => {
     setMenuCNode(
-      menuNodeL2.filter(node => node.code.substring(0, 2) === code) // 按钮点击响应，打开菜单函数
+      menuItemL2.filter(node => node.code.substring(0, 2) === code) // 按钮点击响应，打开菜单函数
     );
     if (MenuCNode.length === 0) {
       setAnchorMenuC(null);
@@ -87,7 +87,7 @@ const ResponsiveAppBar = () => {
           </Typography>
           {/* 🍎电脑版：在蓝色AppBar背景上显示一级菜单按钮 Box */}
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {menuNodeL1.map(node => {
+            {menuItemL1.map(node => {
               let disableFlag = false;
               if (disableNode.includes(node.code)) {
                 disableFlag = true; //无权限菜单项变灰

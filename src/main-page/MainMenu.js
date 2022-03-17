@@ -1,50 +1,61 @@
 import React from 'react';
 import { useState } from 'react';
 import { Menu } from 'antd';
-import {
-  MailOutlined,
-  AppstoreOutlined,
-  SettingOutlined,
-} from '@ant-design/icons';
+import { SettingOutlined } from '@ant-design/icons';
+import { menuItemL1, menuItemL2 } from '../config/menu-item.js';
+import { Link } from 'react-router-dom';
+import './style.css';
+
+// 公共变量，包括 import { menuItemL1, menuItemL2 } ， 一级和二级菜单node 数组
+const disableNode = ['0302']; // 无权限清单
 
 const { SubMenu } = Menu;
 
 /////////////////////////
 const MainMenu = () => {
-  const [current, setCurrent] = useState('mail');
+  const [selectedItemL1, setSelectedItemL1] = useState('');
 
   const handleClick = e => {
-    setCurrent(e.key);
+    setSelectedItemL1(e.key);
   };
 
   // ---- return JSX
   return (
-    <Menu onClick={handleClick} selectedKeys={[current]} mode='horizontal'>
-      <Menu.Item key='mail' icon={<MailOutlined />}>
-        Navigation One1
-      </Menu.Item>
-      <Menu.Item key='app' icon={<AppstoreOutlined />}>
-        Navigation Two2
-      </Menu.Item>
-      <SubMenu
-        key='SubMenu'
-        icon={<SettingOutlined />}
-        title='Navigation Three - Submenu'
-      >
-        <Menu.ItemGroup title='Item 1'>
-          <Menu.Item key='setting:1'>Option 1</Menu.Item>
-          <Menu.Item key='setting:2'>Option 2</Menu.Item>
-        </Menu.ItemGroup>
-        <Menu.ItemGroup title='Item 2'>
-          <Menu.Item key='setting:3'>Option 3</Menu.Item>
-          <Menu.Item key='setting:4'>Option 4</Menu.Item>
-        </Menu.ItemGroup>
-      </SubMenu>
-      <Menu.Item key='alipay'>
-        <a href='https://ant.design' target='_blank' rel='noopener noreferrer'>
-          Navigation Four - Link
-        </a>
-      </Menu.Item>
+    <Menu
+      onClick={handleClick}
+      selectedKeys={[selectedItemL1]}
+      mode='horizontal'
+    >
+      {menuItemL1.map(itemL1 => {
+        let disableFlag = false;
+        if (disableNode.includes(itemL1.code)) {
+          disableFlag = true;
+        }
+        return (
+          <SubMenu
+            disabled={disableFlag}
+            key={itemL1.code}
+            title={itemL1.name}
+            icon={<SettingOutlined />}
+          >
+            {menuItemL2
+              .filter(itemL2 => itemL2.code.substring(0, 2) === itemL1.code)
+              .map(item => {
+                disableFlag = false;
+                if (disableNode.includes(item.code)) {
+                  disableFlag = true;
+                }
+                return (
+                  <Menu.Item key={item.code} disabled={disableFlag}>
+                    <Link className={'link'} to={item.route}>
+                      {item.name}
+                    </Link>
+                  </Menu.Item>
+                );
+              })}
+          </SubMenu>
+        );
+      })}
     </Menu>
   );
 };
