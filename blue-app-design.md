@@ -1,5 +1,3 @@
-
-
 # blue-app 架构设计
 
 ## index.js - App.js 启动入口
@@ -135,6 +133,32 @@ export default App;
   - 一方面，是某种程度的权限控制
   
   - 作为客户端更主要的是，提升用户体验，不需要的没有权限的就不要显示出来干扰注意力。
+
+# 第三步 JWT 认证模块
+
+- JWT认证包括客户端和服务器端的模块
+
+## 注册前端：register
+
+- 还没有做
+
+## 登录前端：login
+
+- src/user-login/Login.jsx
+
+- 一个用antd做的简单form登录组件
+
+- 服务器后端api：/login
+
+- 登录后，服务器端：
+  
+  - 发放cookie，存有jwt token，30秒过期
+  
+  - 发放refreshToken，30天过期，同时存储在用户数据库表（blue_user）的该用户记录的refresh token字段中
+
+- 
+
+- 
 
 # 第N步 读取 blue-server API 数据
 

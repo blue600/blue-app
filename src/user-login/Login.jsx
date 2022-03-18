@@ -5,18 +5,17 @@ import { useState, useContext } from 'react';
 import AuthContext from './AuthProvider.js';
 
 export const Login = () => {
+  // ------- states
   const [success, setSuccess] = useState(false);
-
   const { auth, setAuth } = useContext(AuthContext);
 
   // ------- functions
   const postLogin = async values => {
-    console.log('Success:', values.username, values.password);
+    // console.log('Success:', values.username, values.password);
 
     try {
       const options = {
         method: 'POST',
-        headers: { 'content-type': 'application/json' },
         data: {
           user: values.username,
           pwd: values.password,
@@ -37,7 +36,7 @@ export const Login = () => {
   };
 
   const onFinishFailed = errorInfo => {
-    console.log('Failed:', errorInfo);
+    // console.log('Failed:', errorInfo);
   };
 
   // -------- JSX

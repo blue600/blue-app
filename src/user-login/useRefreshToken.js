@@ -6,16 +6,16 @@ const useRefreshToken = () => {
   const { setAuth } = useContext(AuthContext);
 
   const refresh = async () => {
-    console.log('getting refreshToken ...');
+    // console.log('getting refreshToken ...');
 
     try {
       const response = await axios.get('/accessTokenRefresh', {
         withCredentials: true,
       });
-      console.log('/accessTokenRefresh...res', response);
+      // console.log('/accessTokenRefresh...response', response);
       setAuth(prev => {
-        console.log('prev...', JSON.stringify(prev));
-        console.log(response.data.accessToken);
+        // console.log('prev...', JSON.stringify(prev));
+        // console.log(response.data.accessToken);
         return { ...prev, accessToken: response.data.accessToken };
       });
       return response.data.accessToken;
