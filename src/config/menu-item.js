@@ -16,7 +16,7 @@ const menuItem = [
   { code: '0402', name: '银行对账', route: '/login' },
   { code: '0403', name: '财务报表', route: '/login' },
   { code: '05', name: '系统设置' },
-  { code: '0501', name: '设置1', route: '/login' },
+  { code: '0501', name: '设置1', route: '/hello' },
   { code: '0502', name: '设置2', route: '/login' },
   { code: '0503', name: '设置3', route: '/login' },
 ];

@@ -5,6 +5,7 @@ import { Login } from '../user-login/Login.jsx';
 import { HomeUnLogin } from '../sample-code/HomeUnLogin.jsx';
 import { NumberHook } from '../sample-code/NumberHook';
 import Users from '../user-login/Users';
+import Hello from '../sample-code/Hello';
 
 const { Header, Content, Footer } = Layout;
 
@@ -25,6 +26,7 @@ const MainLayout = () => {
           <Route path='/' element={<Login />} />
           <Route path='*' element={<Login />} />
           <Route path='/login' element={<Login />} />
+          <Route path='/hello' element={<Hello />} />
           <Route path='/user' element={<Users />} />
           <Route path='/homeunlogin' element={<HomeUnLogin />} />
           <Route path='/numberhook' element={<NumberHook />} />
