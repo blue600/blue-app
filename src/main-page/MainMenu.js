@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { Menu } from 'antd';
 import { SettingOutlined } from '@ant-design/icons';
-import { menuItemL1, menuItemL2 } from '../config/menu-item.js';
+import { menuItemL1, menuItemL2 } from './menuItem';
 import { Link } from 'react-router-dom';
 import './style.css';
 

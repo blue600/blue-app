@@ -1,20 +1,25 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
+import axios from '../config/axios.js';
 
 const Hello = () => {
   const [data, setData] = useState('');
-  const fetchData = async () => {
-    const res = await fetch('http://localhost:3500/', { method: 'GET' });
-    console.log(res);
-    const data_GET = await res.json();
-    setData(data_GET);
-  };
 
   useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const options = {
+          method: 'GET',
+          url: '/sayhi',
+        };
+        const res = await axios(options);
+        setData(res.data);
+      } catch (error) {}
+    };
     fetchData();
   }, []);
 
-  return <div> This is {data}</div>;
+  return <div>`Hello from - {data} `</div>;
 };
 
 export default Hello;
